@@ -1,6 +1,7 @@
-{
+{"sql_config":{
     "servername":"localhost",
     "username":"root",
     "password":"",
     "database":"financemanager"
+}
 }

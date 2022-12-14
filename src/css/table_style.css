@@ -1,11 +1,11 @@
 th {
     text-align: left;
     color: #fff;
-    background-color: #706d97;
+    background-color: #000000;
 }
 td {
     min-width: 250px;
-    color: #696969;
+    color: #000000;
     border-bottom: 1px solid #eee;
 }
 th, td {
@@ -16,14 +16,9 @@ td:first-child {
     width: 150px;
     min-width: 0;
 }
-th:last-child {
-    text-align: right;
-}
 td:last-child {
-    width: 80px;
     min-width: 0;
-    text-align: right;
 }
-tr:nth-child(odd) {
-    background-color: #eee;
+tr {
+    background-color: rgb(255, 255, 255)
 }
