@@ -60,10 +60,6 @@ class SQLserver
                 <td>".$row['Transaction_date']."</td>
                 <td>".$row['Description']."</td>
                 <td>
-                <form action='../controllers/deleteTransactionController.php'>
-                    <input type='hidden' name='id' value='" . $row["Category_id"] . "' />
-                    <input type='submit' style='width:100%;' value='Delete'>
-                </form>
                 <form action='../views/editTransaction.php'>
                     <input type='hidden' name='id' value='" . $row["Category_id"] . "' />
                     <input type='hidden' name='Name' value='" . $row["Name"] . "' />
@@ -72,6 +68,10 @@ class SQLserver
                     <input type='hidden' name='Transaction_date' value='" . $row["Transaction_date"] . "' />
                     <input type='hidden' name='Description' value='" . $row["Description"] . "' />
                     <input type='submit' style='width:100%;' value='Edit'>
+                </form>
+                <form action='../controllers/deleteTransactionController.php'>
+                    <input type='hidden' name='id' value='" . $row["Category_id"] . "' />
+                    <input type='submit' style='width:100%;' value='Delete'>
                 </form>
             </td>
             </tr>";
