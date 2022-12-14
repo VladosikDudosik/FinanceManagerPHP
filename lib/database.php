@@ -44,7 +44,7 @@ class SQLserver
         return $tableBody;
     }
     function HTMLTableTransactions(){
-        $selectAll = 'SELECT C.Name,TT.Type,T.Amount,T.Transaction_date,T.Description FROM Transactions AS T 
+        $selectAll = 'SELECT T.Transaction_id,C.Category_id,C.Name,TT.Type,T.Amount,T.Transaction_date,T.Description FROM Transactions AS T 
         JOIN Categories AS C ON C.Category_id = T.Category_id 
         JOIN Transaction_Types AS TT ON TT.Type_id = T.Type_id';
         
@@ -61,23 +61,48 @@ class SQLserver
                 <td>".$row['Description']."</td>
                 <td>
                 <form action='../views/editTransaction.php'>
-                    <input type='hidden' name='id' value='" . $row["Category_id"] . "' />
-                    <input type='hidden' name='Name' value='" . $row["Name"] . "' />
-                    <input type='hidden' name='Type' value='" . $row["Type"] . "' />
+                    <input type='hidden' name='Category_id' value='" . $row["Category_id"] . "' />
+                    <input type='hidden' name='Type_id' value='" . $row["Type"] . "' />
                     <input type='hidden' name='Amount' value='" . $row["Amount"] . "' />
                     <input type='hidden' name='Transaction_date' value='" . $row["Transaction_date"] . "' />
                     <input type='hidden' name='Description' value='" . $row["Description"] . "' />
-                    <input type='submit' style='width:100%;' value='Edit'>
+                    <input type='hidden' name='Transaction_id' value='".$row["Transaction_id"]."' />
+                    <input type='submit' style='width:100%;' value='Редагування'>
                 </form>
                 <form action='../controllers/deleteTransactionController.php'>
-                    <input type='hidden' name='id' value='" . $row["Category_id"] . "' />
-                    <input type='submit' style='width:100%;' value='Delete'>
+                    <input type='hidden' name='id' value='" . $row["Transaction_id"] . "' />
+                    <input type='submit' style='width:100%;' value='Видалення'>
                 </form>
             </td>
             </tr>";
             }
         }
         return $tableBody;
+    }
+    function HTMLCategoryOptions()
+    {
+        $selectAllCategories = 'SELECT c.category_id,c.name  FROM categories as c';
+
+        $result = $this->conn->query($selectAllCategories);
+        $category_options = "";
+        if ($result->num_rows >0){
+            while ($row = $result->fetch_assoc()){
+                $category_options.="<option value='".$row['category_id']."'>".$row['name']."</option>";
+            }
+        }
+        return $category_options;
+    }
+    function HTMLTypesOptions(){
+        $selectAllTypes = 'SELECT t.type_id,t.type  FROM Transaction_types as t';
+
+        $result = $this->conn->query($selectAllTypes);
+        $category_options = "";
+        if ($result->num_rows >0){
+            while ($row = $result->fetch_assoc()){
+                $category_options.="<option value='".$row['type_id']."'>".$row['type']."</option>";
+            }
+        }
+        return $category_options;
     }
 }
 $conn = (new SQLserver())->conn;

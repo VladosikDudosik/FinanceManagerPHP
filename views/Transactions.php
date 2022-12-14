@@ -15,6 +15,7 @@
                     <th>Сума</th>
                     <th>Дата</th>
                     <th>Опис</th>
+                    <th>Управління</th>
                 </thead>
                 <tbody>
                     <?= $tableBody ?>

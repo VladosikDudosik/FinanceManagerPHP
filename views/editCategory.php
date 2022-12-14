@@ -21,7 +21,7 @@ session_start();
             </form>
         <?php 
             if(isset($_SESSION['addError'])){
-                echo "<p style='color:red;font-weight:bold;'>Помилка додавання</p>";
+                echo "<p style='color:red;font-weight:bold;'>Помилка редагування</p>";
                 unset($_SESSION['addError']);
             }
         ?>
