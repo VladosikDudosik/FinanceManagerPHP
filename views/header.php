@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/table_style.css">
+    <script src="../src/plugins/circle.js"></script>
+    <script src="../src/js/diagram.js"></script>
     <title>FinanceManager</title>
 </head>
 <body>

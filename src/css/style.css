@@ -25,12 +25,17 @@ main{
 main > h1 {
     margin:20px 0px 20px 0px;
 }
-
+rect{
+    background-color: rgb(225, 225, 225);
+}
 main .tableContainer{
     background-color: rgb(225, 225, 225);
     padding: 20px;
     border-radius: 5px;
     border: rgb(192, 192, 192) solid 2px;
+}
+.tableContainer.report{
+    display:flex;
 }
 .editButton{
     padding: 10px;

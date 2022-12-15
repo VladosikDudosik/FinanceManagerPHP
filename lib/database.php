@@ -104,6 +104,24 @@ class SQLserver
         }
         return $category_options;
     }
+    function HTMLGenerateReport($Transaction_date_from,$Transaction_date_to,$Type_id){
+        $query = "SELECT C.Name,SUM(T.AMOUNT) AS 'SUM' FROM TRANSACTIONS AS T 
+        JOIN CATEGORIES AS C ON C.CATEGORY_ID = T.CATEGORY_ID
+        WHERE T.TRANSACTION_DATE BETWEEN '$Transaction_date_from' AND '$Transaction_date_to'
+        AND T.Type_id = ".$Type_id."
+        GROUP BY C.NAME";
+        $tableBody = '';
+        $result = $this->conn->query($query);
+        if ($result->num_rows >0){
+            while ($row = $result->fetch_assoc()){
+                $tableBody .="<tr>
+                <td class = 'ReportCategory'>".$row['Name']."</td>
+                <td class = 'ReportSum'>".$row['SUM']."</td>
+            </tr>";
+            }
+        }
+        return $tableBody;
+    }
 }
 $conn = (new SQLserver())->conn;
 ?>
