@@ -21,7 +21,6 @@ nav{
 }
 main{
     padding: 0px 20px 0px 20px;
-
 }
 main > h1 {
     margin:20px 0px 20px 0px;
@@ -30,6 +29,8 @@ main > h1 {
 main .tableContainer{
     background-color: rgb(225, 225, 225);
     padding: 20px;
+    border-radius: 5px;
+    border: rgb(192, 192, 192) solid 2px;
 }
 .editButton{
     padding: 10px;
@@ -37,10 +38,11 @@ main .tableContainer{
     font-weight: bold;
     margin-top: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:20px;
     cursor: pointer;
     outline: none;
 }
-.editForm input{
+.editForm input,.editForm select{
     margin-bottom: 20px;
     outline: none;
 }

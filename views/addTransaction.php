@@ -16,7 +16,7 @@ session_start();
                 <label>Тип операції</label>
                 <select name="Type"><?= $Types_options; ?> </select><br>
                 <label>Сума</label>
-                <input type="text" name="Amount" placeholder="Введіть суму" required><br>
+                <input type="number" name="Amount" placeholder="Введіть суму" required><br>
                 <label>Дата</label>
                 <input type="date" name="Date" placeholder="Оберіть дату" required><br>
                 <label>Опис</label>

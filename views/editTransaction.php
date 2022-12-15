@@ -1,8 +1,8 @@
 <?php 
-if(!isset($_GET['Name'])){
+include("../lib/database.php");
+if(!isset($_GET['Category_id'])){
     header("Location: ../views/Home.php");
 }
-include("../lib/database.php");
 $sql = new SQLserver();
 $tableBody = $sql->HTMLTableCategory();
 $Types_options = $sql->HTMLTypesOptions();
@@ -14,12 +14,12 @@ session_start();
         <h1>Редагувати транзакцію</h1>
         <div class="tableContainer">
             <form class="editForm" action="../controllers/updateTransactionController.php">
-            <label>Категорія</label>
+                <label>Категорія</label>
                 <select name="Category_id" value="<?= $_GET['Category_id'] ?>"><?= $Categories_options; ?> </select><br>
                 <label>Тип операції</label>
                 <select name="Type_id" value="<?= $_GET['Type'] ?>"><?= $Types_options; ?> </select><br>
                 <label>Сума</label>
-                <input type="text" value="<?= $_GET['Amount'] ?>" name="Amount" placeholder="Введіть суму" required><br>
+                <input type="number" value="<?= $_GET['Amount'] ?>" name="Amount" placeholder="Введіть суму" required><br>
                 <label>Дата</label>
                 <input type="date" name="Transaction_date" value="<?= $_GET['Transaction_date'] ?>" placeholder="Оберіть дату" required><br>
                 <label>Опис</label>
